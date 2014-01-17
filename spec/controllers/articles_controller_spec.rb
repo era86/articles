@@ -24,19 +24,13 @@ describe ArticlesController do
       Article.all.count.should == 1
     end
 
-    it 'returns the title' do
-      response.body.should include(title)
-    end
+    #it 'returns the title' do
+      #response.body.should include(title)
+    #end
 
-    it 'returns the body' do
-      response.body.should include(body)
-    end
-
-    #subject { response.body }
-
-    #it { should include(title) }
-
-    #it { should include(body) }
+    #it 'returns the body' do
+      #response.body.should include(body)
+    #end
 
     ####################
     
@@ -52,9 +46,10 @@ describe ArticlesController do
     
     ####################
 
-    #subject { OpenStruct.new(JSON.parse(response.body)) }
+    subject { OpenStruct.new(JSON.parse(response.body)) }
 
-    #its(:title) { should == title }
-    #its(:body)  { should == body }
+    its(:title) { should == title }
+
+    its(:body)  { should == body }
   end
 end
